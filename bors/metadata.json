@@ -1,0 +1,6 @@
+{
+  "name": "BoraScan",
+  "description": "Offline screening app for borax test strip analysis with ArUco card detection and color correction",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

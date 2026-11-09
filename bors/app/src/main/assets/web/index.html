@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#7B1E2E" />
+    <title>BoraScan</title>
+    <link rel="stylesheet" crossorigin href="./assets/index-C-f82JzW.css">
+    <style>
+      .hidden, input[type="file"].hidden, input[type="file"][hidden] {
+        display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('BoraScan runtime error:', e.error || e.message);
+        var b = document.getElementById('runtime-error-box');
+        if (b) {
+          b.style.display = 'block';
+          var t = document.getElementById('runtime-error-text');
+          if (t) t.textContent = (e.error && (e.error.stack || e.error.message)) || e.message || 'Unknown error';
+        }
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        console.error('BoraScan unhandled rejection:', e.reason);
+        var b = document.getElementById('runtime-error-box');
+        if (b) {
+          b.style.display = 'block';
+          var t = document.getElementById('runtime-error-text');
+          if (t) t.textContent = 'Unhandled Rejection: ' + ((e.reason && (e.reason.stack || e.reason.message)) || e.reason || 'Unknown error');
+        }
+      });
+    </script>
+    <script src="./borascan-engine.js"></script>
+    <script src="./referensi-content.js"></script>
+    <script src="./borascan-patch.js"></script>
+    <script type="module" crossorigin src="./assets/index-CaPwv2u6.js"></script>
+  </head>
+  <body>
+    <div id="runtime-error-box" style="display:none;position:fixed;top:0;left:0;right:0;z-index:999999;background:#7F1D1D;color:#FEE2E2;padding:12px;font-family:sans-serif;font-size:12px;box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+      <div style="font-weight:bold;margin-bottom:4px;">Terjadi Kesalahan pada Aplikasi:</div>
+      <div id="runtime-error-text" style="font-family:monospace;font-size:10px;white-space:pre-wrap;max-height:80px;overflow:auto;background:rgba(0,0,0,0.3);padding:6px;border-radius:4px;"></div>
+      <button onclick="location.reload()" style="margin-top:8px;padding:6px 12px;background:#fff;color:#7F1D1D;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">Muat Ulang Halaman</button>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
